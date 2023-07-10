@@ -14,7 +14,34 @@ jobs:
               run: npm ci
             - name: run test
               run: npm test
-
+    test1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v3
+            - name: install nodejs
+              uses: actions/setup-node@v3
+              with: 
+                node-version: 'latest'
+            - name: install dependency
+              run: npm ci
+            - name: run test
+              run: npm test
+    Deploy: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v3
+            - name: install nodejs
+              uses: actions/setup-node@v3
+              with: 
+                node-version: 'latest'
+            - name: install dependency
+              run: npm ci
+            - name: build project
+              run: npm run build 
+            - name: deploy
+              run: echo "built project"
 
 
     
